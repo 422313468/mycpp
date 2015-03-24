@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui sql
 
 TARGET = Company
 TEMPLATE = app
@@ -15,14 +15,17 @@ SOURCES += main.cpp\
     person.cpp \
     company.cpp \
     secondwindow.cpp \
-    thirdwindow.cpp
+    thirdwindow.cpp \
+    fourthwindow.cpp
 
 HEADERS  += mainwindow.h \
     person.h \
     company.h \
     secondwindow.h \
-    thirdwindow.h
+    thirdwindow.h \
+    fourthwindow.h
 
 FORMS    += mainwindow.ui \
     secondwindow.ui \
-    thirdwindow.ui
+    thirdwindow.ui \
+    fourthwindow.ui

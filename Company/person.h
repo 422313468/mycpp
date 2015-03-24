@@ -1,75 +1,97 @@
 #ifndef _PERSON_H_
 #define _PERSON_H_
 #include <string>
+#include <QString>
 #include <list>
+#include <QDebug>
 using namespace std;
 
 class Person{
+
 public:
-    Person(string name,string gender,double salary,int level);
+    Person(QString name,QString gender,QString salary,int level,int id);
     virtual ~Person() = 0;
     //virtual void adduser() = 0;
     //virtual void deluser() = 0;
     //virtual void changeuser() = 0;
     //virtual void checkuser() = 0;
-    int getm_id(){
-        return m_id;
-    }
+    virtual QString get_name() = 0;
+    //virtual void doSomething()=0;
+    virtual QString get_gender() = 0;
+    virtual QString get_salary() = 0;
+    virtual int get_id() = 0;
+
 protected:
-	string m_name;
-    string m_gender;
-    double m_salary;
-    static int m_id;
+    QString m_name;
+    QString m_gender;
+    QString m_salary;
 	int m_level;
+    int m_id;
+public:
+    static int count;
 };
 
-class General:public Person{
+
+class General:public Person
+{
 public:
-    General(string name,string gender,double salary,int level);
-	~General();	
+    General(QString name,QString gender,QString salary,int level,int id);
+    ~General();
+    virtual QString get_name(){
+        return m_name;
+    }
+    virtual QString get_gender();
+    virtual QString get_salary();
+    virtual int get_id();
+    //virtual void doSomething(){qDebug()<<"General"<<endl;}
     //virtual void adduser();
     //virtual void deluser();
     //virtual void changeuser();
     //virtual void checkuser()；
 	
 };
-/*
+
 class Artisan:public Person{
 public:
-    Artisan(string name,string gender,double salary,int id,int level);
-	~Artisan();
-	virtual void adduser();
-	virtual void deluser();
-	virtual void changeuser();
-	virtual void checkuser();
-private:
-	list<Artisan> artisan_num;
-	
+    Artisan(QString name,QString gender,QString salary,int level,int id);
+    ~Artisan();
+    virtual QString get_name(){
+        return m_name;
+    }
+    virtual QString get_gender();
+    virtual QString get_salary();
+    virtual int get_id();
+    //virtual void doSomething(){qDebug()<<"Artisan"<<endl;}
+
 };
 
 class Market:public Person{
 public:
-    Market(string name,string gender,double salary,int id,int level);
+    Market(QString name,QString gender,QString salary,int level,int id);
 	~Market();
-	virtual void adduser();
-	virtual void deluser();
-	virtual void changeuser();
-	virtual void checkuser();
-private:
-	list<Market> market_num;
+    virtual QString get_name(){
+        return m_name;
+    }
+    virtual QString get_gender();
+    virtual QString get_salary();
+    virtual int get_id();
+    //virtual void doSomething(){qDebug()<<"Market"<<endl;}
+
 };
 
 class Part_time:public Person{
 public:
-    Part_time(string name,string gender,double salary,int id,int level);
+    Part_time(QString name,QString gender,QString salary,int level,int id);
 	~Part_time();
-	virtual void adduser();
-	virtual void deluser();
-	virtual void changeuser();
-	virtual void checkuser();
-private:
-	list<Part_time> part_time_num;
+    virtual QString get_name(){
+        return m_name;
+    }
+    virtual QString get_gender();
+    virtual QString get_salary();
+    virtual int get_id();
+    //virtual void doSomething(){qDebug()<<"Part_time"<<endl;}
+
 };
-*/
+
 #endif
 

@@ -6,66 +6,140 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>464</width>
+    <height>316</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="createusr">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>70</y>
-     <width>98</width>
-     <height>27</height>
+     <x>10</x>
+     <y>20</y>
+     <width>111</width>
+     <height>251</height>
     </rect>
    </property>
-   <property name="text">
-    <string>新建成员</string>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="createusr">
+      <property name="text">
+       <string>新建成员</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="showusr">
+      <property name="text">
+       <string>成员显示</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="deleteusr">
+      <property name="text">
+       <string>成员删除</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="findusr">
+      <property name="text">
+       <string>成员查找</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>退出</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QTextEdit" name="memberEdit">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>40</y>
+     <width>291</width>
+     <height>231</height>
+    </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="showusr">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>160</y>
-     <width>98</width>
-     <height>27</height>
+     <x>201</x>
+     <y>21</y>
+     <width>51</width>
+     <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>成员显示</string>
+    <string>    name</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="findusr">
+  <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>160</y>
-     <width>98</width>
-     <height>27</height>
+     <x>150</x>
+     <y>20</y>
+     <width>31</width>
+     <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>成员查找</string>
+    <string>id</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="deleteusr">
+  <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>70</y>
-     <width>98</width>
-     <height>27</height>
+     <x>281</x>
+     <y>21</y>
+     <width>49</width>
+     <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>成员删除</string>
+    <string>gender</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>371</x>
+     <y>21</y>
+     <width>41</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>salary</string>
    </property>
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>secondwindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>63</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>133</x>
+     <y>253</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

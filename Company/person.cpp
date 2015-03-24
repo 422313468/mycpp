@@ -4,21 +4,22 @@
 #include <list>
 using namespace std;
 
-int Person::m_id = 0;
+int Person::count = 0;
 
-Person::Person(string name,string gender,double salary,int level)
-    :m_name(name),m_gender(gender),m_salary(salary),m_level(level)
+
+Person::Person(QString name,QString gender,QString salary,int level,int id)
+    :m_name(name),m_gender(gender),m_salary(salary),m_level(level),m_id(id)
 {
-    m_id++;
+
 }
 
 Person::~Person()
 {
-    m_id--;
+
 }
 
-General::General(string name,string gender,double salary,int level)
-    :Person(name,gender,salary,level)
+General::General(QString name,QString gender,QString salary,int level,int id)
+    :Person(name,gender,salary,level,id)
 {
     // general_num = new list<General>;
    
@@ -27,22 +28,22 @@ General::General(string name,string gender,double salary,int level)
 General::~General()
 {
 }
-/*
-void General::adduser(){
-	cout << "please general name: "<< endl;
-	cin >> m_name;
-	cout << "please general level: " << endl;
-	cin >> m_level;
-	cout << "please general money: " << endl;
-	cin >> m_money;
-	m_id = m_id + 1;
-    //general_num.push_back(m_name,m_id,m_level,m_money);
-
+QString General::get_gender(){
+    return m_gender;
 }
-*/
-/*
-Artisan::Artisan(string name,int id,int level,double money)
-	:Person(name,id,level,money)
+int General::get_id(){
+    return m_id;
+}
+QString General::get_salary(){
+    return m_salary;
+}
+
+
+
+
+
+Artisan::Artisan(QString name,QString gender,QString salary,int level,int id)
+    :Person(name,gender,salary,level,id)
 {
 }
 
@@ -50,17 +51,46 @@ Artisan::~Artisan()
 {
 }
 
-Market::Market(string name,int id,int level,double money)
-	:Person(name,id,level,money)
+QString Artisan::get_gender(){
+    return m_gender;
+}
+int Artisan::get_id(){
+    return m_id;
+}
+QString Artisan::get_salary(){
+    return m_salary;
+}
+
+
+
+
+
+
+Market::Market(QString name,QString gender,QString salary,int level,int id)
+    :Person(name,gender,salary,level,id)
 {
 }
 
 Market::~Market()
 {
 }
+QString Market::get_gender(){
+    return m_gender;
+}
 
-Part_time::Part_time(string name,int id,int level,double money)
-	:Person(name,id,level,money)
+int Market::get_id(){
+    return m_id;
+}
+QString Market::get_salary(){
+    return m_salary;
+}
+
+
+
+
+
+Part_time::Part_time(QString name,QString gender,QString salary,int level,int id)
+    :Person(name,gender,salary,level,id)
 {
 }
 
@@ -68,5 +98,13 @@ Part_time::~Part_time()
 {
 }
 
-*/
+QString Part_time::get_gender(){
+    return m_gender;
+}
 
+int Part_time::get_id(){
+    return m_id;
+}
+QString Part_time::get_salary(){
+    return m_salary;
+}

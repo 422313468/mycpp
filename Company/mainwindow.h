@@ -7,6 +7,7 @@
 #include <QLabel>
 #include "secondwindow.h"
 #include "person.h"
+#include <QtSql>
 class QPushButton;
 class QWidget;
 class QLabel;
@@ -21,20 +22,17 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void create_company();
     
 private slots:
-    void on_mastername_textEdited();
-
-    void on_masterpasswd_textEdited();
 
     void on_logusr_clicked();
 
 private:
     Ui::MainWindow *ui;
-    QLabel* m_name;
-    QLabel* m_passwd;
     QPushButton* m_logusr;
     secondwindow* sec;
+    Company* m_company;
 };
 
 #endif // MAINWINDOW_H

@@ -2,12 +2,14 @@
 #include "ui_mainwindow.h"
 #include <QDebug>
 #include "secondwindow.h"
+#include "company.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    sec = new secondwindow;
+   // sec = new secondwindow();
+    create_company();
    // m_name = new QLabel("name",this);
    // m_passwd = new QLabel("passwd",this);
   //  m_logusr = new QPushButton("登录",this);
@@ -18,15 +20,9 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-void MainWindow::on_mastername_textEdited()
+void MainWindow::create_company()
 {
-    ui->mastername->text();
-}
-
-void MainWindow::on_masterpasswd_textEdited()
-{
-    ui->masterpasswd->text();
+    m_company = Company::getcompany();
 }
 
 void MainWindow::on_logusr_clicked()
@@ -36,6 +32,7 @@ void MainWindow::on_logusr_clicked()
         if(ui->masterpasswd->text() == "123456")
         {
          qDebug() << "welcome" << endl;
+         sec = new secondwindow(m_company);
          sec->show();
         }
     }
