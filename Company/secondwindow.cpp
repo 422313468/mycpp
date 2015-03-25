@@ -5,49 +5,53 @@
 #include <iostream>
 #include "company.h"
 #include "person.h"
+#include "mainwindow.h"
+
 using namespace std;
-secondwindow::secondwindow(Company *p,QWidget *parent) :
+secondwindow::secondwindow(void* window_parent,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::secondwindow)
 {
     ui->setupUi(this);
-    m_company = p;
-
+   // m_company = p;
+    m_parent = (QWidget*)window_parent;
 }
 
 secondwindow::~secondwindow()
 {
     delete ui;
+   // ((MainWindow*)m_parent)->m_company->remove(id,"ssss");
+
 }
 
 void secondwindow::on_createusr_clicked()
 {
-    third = new thirdwindow(m_company);
+    third = new thirdwindow(m_parent);
     third->show();
 }
 
 void secondwindow::on_showusr_clicked()
 {
     //m_company->showPerson();
-    ui->memberEdit->clear();
-    list<Person*>::iterator it;
     QString b;
-    QString c;
+    ui->memberEdit->clear();
+    //((MainWindow*)m_parent)->m_company->showusr(b);
+    ((MainWindow*)m_parent)->m_company->showdatabase(b);
+    ui->memberEdit->append(b);
 
-    list<Person*> coll = m_company->getlist();
-    for(it=coll.begin();it!=coll.end();++it)
-    {
-        c = QString::number((*it)->get_id());
-        b = c + "             " + (*it)->get_name() +"             "
-                + (*it)->get_gender() + "              "+(*it)->get_salary();
-        ui->memberEdit->append(b);
-    }
+
 }
 
 
 
 void secondwindow::on_deleteusr_clicked()
 {
-    fourth = new fourthwindow(m_company);
+    fourth = new fourthwindow(m_parent);
     fourth->show();
+}
+
+void secondwindow::on_findusr_clicked()
+{
+    firth = new firthwindow(m_parent);
+    firth->show();
 }

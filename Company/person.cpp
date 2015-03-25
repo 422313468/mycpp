@@ -37,7 +37,9 @@ int General::get_id(){
 QString General::get_salary(){
     return m_salary;
 }
-
+int General::get_level(){
+    return m_level;
+}
 
 
 
@@ -60,7 +62,9 @@ int Artisan::get_id(){
 QString Artisan::get_salary(){
     return m_salary;
 }
-
+int Artisan::get_level(){
+    return m_level;
+}
 
 
 
@@ -84,7 +88,9 @@ int Market::get_id(){
 QString Market::get_salary(){
     return m_salary;
 }
-
+int Market::get_level(){
+    return m_level;
+}
 
 
 
@@ -107,4 +113,7 @@ int Part_time::get_id(){
 }
 QString Part_time::get_salary(){
     return m_salary;
+}
+int Part_time::get_level(){
+    return m_level;
 }

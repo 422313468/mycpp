@@ -23,6 +23,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void create_company();
+    Company* m_company;
     
 private slots:
 
@@ -32,7 +33,7 @@ private:
     Ui::MainWindow *ui;
     QPushButton* m_logusr;
     secondwindow* sec;
-    Company* m_company;
+
 };
 
 #endif // MAINWINDOW_H

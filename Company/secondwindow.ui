@@ -13,114 +13,95 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>20</y>
-     <width>111</width>
-     <height>251</height>
+     <x>52</x>
+     <y>32</y>
+     <width>353</width>
+     <height>221</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
-     <widget class="QPushButton" name="createusr">
-      <property name="text">
-       <string>新建成员</string>
-      </property>
-     </widget>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QPushButton" name="createusr">
+        <property name="text">
+         <string>新建成员</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="showusr">
+        <property name="text">
+         <string>成员显示</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="deleteusr">
+        <property name="text">
+         <string>成员删除</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="findusr">
+        <property name="text">
+         <string>成员查找</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>退出</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item>
-     <widget class="QPushButton" name="showusr">
-      <property name="text">
-       <string>成员显示</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="deleteusr">
-      <property name="text">
-       <string>成员删除</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="findusr">
-      <property name="text">
-       <string>成员查找</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>退出</string>
-      </property>
-     </widget>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>id</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>    name</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>gender</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>salary</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QTextEdit" name="memberEdit"/>
+      </item>
+     </layout>
     </item>
    </layout>
-  </widget>
-  <widget class="QTextEdit" name="memberEdit">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>40</y>
-     <width>291</width>
-     <height>231</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>201</x>
-     <y>21</y>
-     <width>51</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>    name</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>20</y>
-     <width>31</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>id</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_5">
-   <property name="geometry">
-    <rect>
-     <x>281</x>
-     <y>21</y>
-     <width>49</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>gender</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>371</x>
-     <y>21</y>
-     <width>41</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>salary</string>
-   </property>
   </widget>
  </widget>
  <resources/>

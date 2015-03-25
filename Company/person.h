@@ -20,6 +20,7 @@ public:
     virtual QString get_gender() = 0;
     virtual QString get_salary() = 0;
     virtual int get_id() = 0;
+    virtual int get_level() = 0;
 
 protected:
     QString m_name;
@@ -43,6 +44,7 @@ public:
     virtual QString get_gender();
     virtual QString get_salary();
     virtual int get_id();
+    virtual int get_level();
     //virtual void doSomething(){qDebug()<<"General"<<endl;}
     //virtual void adduser();
     //virtual void deluser();
@@ -61,6 +63,7 @@ public:
     virtual QString get_gender();
     virtual QString get_salary();
     virtual int get_id();
+    virtual int get_level();
     //virtual void doSomething(){qDebug()<<"Artisan"<<endl;}
 
 };
@@ -75,6 +78,7 @@ public:
     virtual QString get_gender();
     virtual QString get_salary();
     virtual int get_id();
+    virtual int get_level();
     //virtual void doSomething(){qDebug()<<"Market"<<endl;}
 
 };
@@ -89,6 +93,7 @@ public:
     virtual QString get_gender();
     virtual QString get_salary();
     virtual int get_id();
+    virtual int get_level();
     //virtual void doSomething(){qDebug()<<"Part_time"<<endl;}
 
 };

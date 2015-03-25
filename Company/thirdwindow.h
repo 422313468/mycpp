@@ -3,6 +3,11 @@
 #include "company.h"
 #include "person.h"
 #include <QWidget>
+#include <QtSql>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QString>
+#include <QMainWindow>
 
 
 class Company;
@@ -16,21 +21,18 @@ class thirdwindow : public QWidget
     Q_OBJECT
     
 public:
-    explicit thirdwindow(Company* p,QWidget *parent = 0);
+    explicit thirdwindow(void* window_parent,QWidget *parent = 0);
     ~thirdwindow();
     
 private slots:
-    //void on_newname_textEdited(const QString &arg1);
-
-    //void on_comboBox_editTextChanged(const QString &arg1);
-
-    //void on_comboBox_activated(const QString &arg1);
 
     void on_create_newusr_clicked();
 
 private:
     Ui::thirdwindow *ui;
-    Company* m_company;
+    //Company* m_company;
+    QWidget* m_parent;
+
 };
 
 #endif // THIRDWINDOW_H

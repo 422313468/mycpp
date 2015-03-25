@@ -32,7 +32,7 @@ void MainWindow::on_logusr_clicked()
         if(ui->masterpasswd->text() == "123456")
         {
          qDebug() << "welcome" << endl;
-         sec = new secondwindow(m_company);
+         sec = new secondwindow(this);
          sec->show();
         }
     }

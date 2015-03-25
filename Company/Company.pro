@@ -16,16 +16,19 @@ SOURCES += main.cpp\
     company.cpp \
     secondwindow.cpp \
     thirdwindow.cpp \
-    fourthwindow.cpp
+    fourthwindow.cpp \
+    firthwindow.cpp
 
 HEADERS  += mainwindow.h \
     person.h \
     company.h \
     secondwindow.h \
     thirdwindow.h \
-    fourthwindow.h
+    fourthwindow.h \
+    firthwindow.h
 
 FORMS    += mainwindow.ui \
     secondwindow.ui \
     thirdwindow.ui \
-    fourthwindow.ui
+    fourthwindow.ui \
+    firthwindow.ui

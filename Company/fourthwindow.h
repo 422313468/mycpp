@@ -13,7 +13,7 @@ class fourthwindow : public QWidget
     Q_OBJECT
     
 public:
-    explicit fourthwindow(Company* p,QWidget *parent = 0);
+    explicit fourthwindow(void* window_parent,QWidget *parent = 0);
     ~fourthwindow();
     
 private slots:
@@ -22,6 +22,7 @@ private slots:
 private:
     Ui::fourthwindow *ui;
     Company* m_company;
+    QWidget* m_parent;
 };
 
 #endif // FOURTHWINDOW_H
