@@ -29,9 +29,10 @@ void thirdwindow::on_create_newusr_clicked()
     QString salary = ui->salary->text();
     //ui->comboBox->editTextChanged();
     QString vocation = ui->comboBox->currentText();
-    ((MainWindow*)m_parent)->m_company->createusr(vocation,newname,gender,salary);
-
-    ((MainWindow*)m_parent)->m_company->addmember(newname,gender,salary);
+    int level = 0;
+    ((MainWindow*)m_parent)->m_company->createusr(vocation,newname,gender,salary,level);
+    qDebug() << "level" << level << endl;
+    ((MainWindow*)m_parent)->m_company->addmember_from_database(newname,gender,salary,level);
     ui->newname->clear();
     ui->gender->clear();
     ui->salary->clear();

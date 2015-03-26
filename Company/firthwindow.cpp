@@ -20,7 +20,10 @@ void firthwindow::on_find_clicked()
 {
     ui->textEdit->clear();
     QString b;
-    ((MainWindow*)m_parent)->m_company->show_name_id_vocation(ui->comboBox->currentText()
-                                                           ,ui->lineEdit->text(),b);
+    //((MainWindow*)m_parent)->m_company->show_name_id_vocation(ui->comboBox->currentText()
+    //                                                       ,ui->lineEdit->text(),b);
+    //ui->textEdit->append(b);
+    ((MainWindow*)m_parent)->m_company->find_from_database(ui->comboBox->currentText(),
+                                                           ui->lineEdit->text(),b);
     ui->textEdit->append(b);
 }

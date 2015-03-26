@@ -18,13 +18,14 @@ public:
         person.push_back(other);
     }
     bool remove(int id,QString name);
-    void createusr(QString& vocation,QString& newname,QString& gender,QString& salary);
+    void createusr(QString& vocation,QString& newname,QString& gender,QString& salary,int& level);
     void showusr(QString& b);
     void deleteusr(QString& vocation,QString& nameid);
     void show_name_id_vocation(QString vocation,QString name_id_vocation,QString& b);
     void showdatabase(QString& b);
-    void addmember(QString& name,QString& gender,QString& salary);
-    void deletemember(QString vocation,QString nameid);
+    void addmember_from_database(QString& name,QString& gender,QString& salary,int& level);
+    void deletemember_from_database(QString vocation,QString nameid);
+    void find_from_database(QString vocation,QString nameid,QString& d);
     //void showPerson();
 private:
     list<Person*> person;

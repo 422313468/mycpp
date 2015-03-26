@@ -13,11 +13,24 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>20</y>
+     <width>151</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>公司管理界面</string>
+   </property>
+  </widget>
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>52</x>
-     <y>32</y>
+     <x>41</x>
+     <y>60</y>
      <width>353</width>
      <height>221</height>
     </rect>
@@ -54,6 +67,13 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="calculate">
+        <property name="text">
+         <string>计算工资</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="pushButton">
         <property name="text">
          <string>退出</string>
@@ -70,6 +90,13 @@
          <widget class="QLabel" name="label_3">
           <property name="text">
            <string>id</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>level</string>
           </property>
          </widget>
         </item>

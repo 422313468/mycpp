@@ -22,6 +22,6 @@ void fourthwindow::on_delete_2_clicked()
     QString vocation = ui->comboBox->currentText();
     QString nameid = ui->deletematter->text();
     //((MainWindow*)m_parent)->m_company->deleteusr(vocation,nameid);
-    ((MainWindow*)m_parent)->m_company->deletemember(vocation,nameid);
+    ((MainWindow*)m_parent)->m_company->deletemember_from_database(vocation,nameid);
     close();
 }

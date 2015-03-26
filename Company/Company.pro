@@ -17,7 +17,8 @@ SOURCES += main.cpp\
     secondwindow.cpp \
     thirdwindow.cpp \
     fourthwindow.cpp \
-    firthwindow.cpp
+    firthwindow.cpp \
+    sixthwindow.cpp
 
 HEADERS  += mainwindow.h \
     person.h \
@@ -25,10 +26,12 @@ HEADERS  += mainwindow.h \
     secondwindow.h \
     thirdwindow.h \
     fourthwindow.h \
-    firthwindow.h
+    firthwindow.h \
+    sixthwindow.h
 
 FORMS    += mainwindow.ui \
     secondwindow.ui \
     thirdwindow.ui \
     fourthwindow.ui \
-    firthwindow.ui
+    firthwindow.ui \
+    sixthwindow.ui

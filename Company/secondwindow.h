@@ -5,6 +5,7 @@
 #include "thirdwindow.h"
 #include "fourthwindow.h"
 #include "firthwindow.h"
+#include "sixthwindow.h"
 namespace Ui {
 class secondwindow;
 }
@@ -25,6 +26,7 @@ private slots:
     void on_deleteusr_clicked();
 
     void on_findusr_clicked();
+    void on_calculate_clicked1();
 
 private:
     Ui::secondwindow *ui;
@@ -33,6 +35,8 @@ private:
     //Company* m_company;
     QWidget* m_parent;
     firthwindow* firth;
+    sixthwindow* sixth;
+
 
 };
 

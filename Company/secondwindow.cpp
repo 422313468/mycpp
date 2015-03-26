@@ -15,6 +15,7 @@ secondwindow::secondwindow(void* window_parent,QWidget *parent) :
     ui->setupUi(this);
    // m_company = p;
     m_parent = (QWidget*)window_parent;
+    QObject::connect(ui->calculate,SIGNAL(clicked()),this,SLOT(on_calculate_clicked1()));
 }
 
 secondwindow::~secondwindow()
@@ -54,4 +55,11 @@ void secondwindow::on_findusr_clicked()
 {
     firth = new firthwindow(m_parent);
     firth->show();
+}
+
+void secondwindow::on_calculate_clicked1()
+{
+    sixth = new sixthwindow(m_parent);
+    sixth->show();
+
 }

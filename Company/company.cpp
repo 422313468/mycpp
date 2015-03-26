@@ -29,15 +29,15 @@ void Company::showPerson()
 }
 */
 
-void Company::createusr(QString& vocation,QString& newname,QString& gender,QString& salary)
+void Company::createusr(QString& vocation,QString& newname,QString& gender,QString& salary,int& level)
 {
-    qDebug()<<"123"<<endl;
     if(vocation == "General")
     {
         if(newname.isEmpty()||gender.isEmpty()||salary.isEmpty()){
             qDebug()<< "create not NULL !" << endl;
         }else
         {
+            level = 4;
             Person* number = new General(newname,gender,salary,4,++Person::count);
             person.push_back(number);
             qDebug() << "create general success" << endl;
@@ -47,6 +47,7 @@ void Company::createusr(QString& vocation,QString& newname,QString& gender,QStri
         if(newname.isEmpty()||gender.isEmpty()||salary.isEmpty()){
             qDebug()<< "create not NULL !" << endl;
         }else{
+            level = 2;
             Person* number = new Market(newname,gender,salary,2,++Person::count);
             person.push_back(number);
             qDebug() << "create Market success" << endl;
@@ -56,6 +57,7 @@ void Company::createusr(QString& vocation,QString& newname,QString& gender,QStri
         if(newname.isEmpty()||gender.isEmpty()||salary.isEmpty()){
             qDebug()<< "create not NULL !" << endl;
         }else{
+            level = 3;
             Person* number = new Artisan(newname,gender,salary,3,++Person::count);
             person.push_back(number);
             qDebug() << "create Artisan success" << endl;
@@ -65,6 +67,7 @@ void Company::createusr(QString& vocation,QString& newname,QString& gender,QStri
         if(newname.isEmpty()||gender.isEmpty()||salary.isEmpty()){
             qDebug()<< "create not NULL !" << endl;
         }else{
+            level = 1;
             Person* number = new Part_time(newname,gender,salary,1,++Person::count);
             person.push_back(number);
             qDebug() << "create Part_time success" << endl;
@@ -82,8 +85,8 @@ void Company::showusr(QString& b)
     {
         c = QString::number((*it)->get_id());
 
-        b +=c + "       " + (*it)->get_name() +"      "
-                + (*it)->get_gender() + "        "+(*it)->get_salary()+"\n";
+        b +=c + "      " + (*it)->get_name() +"      "
+                + (*it)->get_gender() + "      "+(*it)->get_salary()+"\n";
 
 
     }
@@ -149,8 +152,8 @@ void Company::show_name_id_vocation(QString vocation,QString name_id_vocation,QS
             if((*it)->get_name() == name_id_vocation){
                 c = QString::number((*it)->get_id());
 
-                b +=c + "      " + (*it)->get_name() +"       "
-                        + (*it)->get_gender() + "       "+(*it)->get_salary()+"\n";
+                b +=c + "      " + (*it)->get_name() +"      "
+                        + (*it)->get_gender() + "      "+(*it)->get_salary()+"\n";
             }
         }
     }else if(vocation == "id")
@@ -160,8 +163,8 @@ void Company::show_name_id_vocation(QString vocation,QString name_id_vocation,QS
             val = name_id_vocation.toInt();
             if((*it)->get_id() == val){
                 c = QString::number((*it)->get_id());
-                b +=c + "      " + (*it)->get_name() +"         "
-                        + (*it)->get_gender() + "       "+(*it)->get_salary()+"\n";
+                b +=c + "      " + (*it)->get_name() +"      "
+                        + (*it)->get_gender() + "      "+(*it)->get_salary()+"\n";
             }
         }
 
@@ -173,15 +176,15 @@ void Company::show_name_id_vocation(QString vocation,QString name_id_vocation,QS
             val = name_id_vocation.toInt();
             if((*it)->get_level() == val){
                 c = QString::number((*it)->get_id());
-                b +=c + "      " + (*it)->get_name() +"         "
-                        + (*it)->get_gender() + "          "+(*it)->get_salary()+"\n";
+                b +=c + "      " + (*it)->get_name() +"      "
+                        + (*it)->get_gender() + "      "+(*it)->get_salary()+"\n";
             }
         }
     }
 
 }
 
-void Company::addmember(QString& name,QString& gender,QString& salary){
+void Company::addmember_from_database(QString& name,QString& gender,QString& salary,int& level){
     if(db.isOpen()){
 
     }else
@@ -197,10 +200,11 @@ void Company::addmember(QString& name,QString& gender,QString& salary){
     }
     if(ok){
         qDebug() << "company ok" << endl;
-        QString cmd = "insert into m_company values(:id,:name,:gender,:salary)";
+        QString cmd = "insert into m_company values(:id,:level,:name,:gender,:salary)";
         QSqlQuery query;
         query.prepare(cmd);
         query.bindValue(":id",Person::count);
+        query.bindValue(":level",level);
         query.bindValue(":name",name);
         query.bindValue(":gender",gender);
         query.bindValue(":salary",salary);
@@ -234,14 +238,14 @@ void Company::showdatabase(QString& b){
         QSqlQuery query;
         bool d = query.exec(cmd);
         if(d){
-            qDebug() <<"select ok"<< endl;
+            qDebug() <<"select all ok"<< endl;
             while(query.next()){
                 //ui->memberEdit->append(b);
-                b += (query.value(0).toString()+"      "+query.value(1).toString()
-                                            +"       "+query.value(2).toString()+"       "+query.value(3).toString())+"\n";
+                b += (query.value(0).toString()+"          "+query.value(1).toString()
+                                            +"          "+query.value(2).toString()+"      "+query.value(3).toString())+"      "+query.value(4).toString()+"\n";
             }
         }else{
-            qDebug() <<"select error"<< endl;
+            qDebug() <<"select all error"<< endl;
         }
         db.close();
         QSqlDatabase::removeDatabase("QMYSQL");
@@ -252,7 +256,7 @@ void Company::showdatabase(QString& b){
 
 }
 
-void Company::deletemember(QString vocation,QString nameid){
+void Company::deletemember_from_database(QString vocation,QString nameid){
     if(db.isOpen()){
 
     }else{
@@ -266,13 +270,14 @@ void Company::deletemember(QString vocation,QString nameid){
     if(ok){
         qDebug()<< "company ok"<< endl;
         if(vocation == "name"){
-            QString cmd = "delete from m_company where name ="+ nameid +";";
+            QString a = "'"+ nameid + "'";
+            QString cmd = "delete from m_company where name = "+ a +";";
             QSqlQuery query;
             bool b = query.exec(cmd);
             if(b){
-                qDebug() << "delete ok" << endl;
+                qDebug() << "delete name ok" << endl;
             }else{
-                qDebug() << "delete error" << endl;
+                qDebug() << "delete name error" << endl;
             }
             db.close();
             QSqlDatabase::removeDatabase("QMYSQL");
@@ -282,9 +287,9 @@ void Company::deletemember(QString vocation,QString nameid){
             QSqlQuery query;
             bool b = query.exec(cmd);
             if(b){
-                qDebug() << "delete ok" << endl;
+                qDebug() << "delete id ok" << endl;
             }else{
-                qDebug() << "delete error" << endl;
+                qDebug() << "delete id error" << endl;
             }
             db.close();
             QSqlDatabase::removeDatabase("QMYSQL");
@@ -295,6 +300,77 @@ void Company::deletemember(QString vocation,QString nameid){
         qDebug()<< "company error"<<db.lastError()<< endl;
     }
 
+
+}
+
+void Company::find_from_database(QString vocation,QString nameid,QString& d)
+{
+    if(db.isOpen()){
+
+    }else{
+        db =  QSqlDatabase::addDatabase("QMYSQL");
+        db.setHostName("localhost");
+        db.setDatabaseName("company");
+        db.setUserName("root");
+        db.setPassword("123456");
+        ok = db.open();
+    }
+    if(ok){
+        qDebug()<< "company ok"<< endl;
+        if(vocation == "name")
+        {
+            QString a = "'" + nameid + "'";
+            QString cmd = "select * from m_company where name ="+ a +";";
+            QSqlQuery query;
+            bool b = query.exec(cmd);
+            if(b){
+                while(query.next()){
+                    d += (query.value(0).toString()+"      "+query.value(1).toString()
+                                                +"      "+query.value(2).toString()+"      "+query.value(3).toString())+"      "+query.value(4).toString()+"\n";
+                }
+                qDebug() << "select name ok" << endl;
+            }else{
+                qDebug() << "select name error" << endl;
+            }
+            db.close();
+            QSqlDatabase::removeDatabase("QMYSQL");
+         } else if(vocation == "id")
+        {
+            QString cmd = ("select * from m_company where id ="+ nameid +";");
+            QSqlQuery query;
+            bool b = query.exec(cmd);
+            if(b){
+                while(query.next()){
+                    d += (query.value(0).toString()+"      "+query.value(1).toString()
+                                                +"      "+query.value(2).toString()+"      "+query.value(3).toString())+"      "+query.value(4).toString()+"\n";
+                }
+                qDebug() << "select id ok" << endl;
+            }else{
+                qDebug() << "select id error" << endl;
+            }
+            db.close();
+            QSqlDatabase::removeDatabase("QMYSQL");
+        }else if(vocation == "vocation")
+        {
+            QString cmd = ("select * from m_company where level = " + nameid + ";");
+            QSqlQuery query;
+            bool b = query.exec(cmd);
+            if(b){
+                while(query.next()){
+                    d += (query.value(0).toString()+"      "+query.value(1).toString()
+                          +"      "+query.value(2).toString()+"      "+query.value(3).toString())+"      "+query.value(4).toString()+"\n";
+                }
+                qDebug() << "select vocation ok" << endl;
+            }else{
+                qDebug() << "select vocation error" << endl;
+            }
+            db.close();
+            QSqlDatabase::removeDatabase("QMYSQL");
+        }
+
+    }else{
+        qDebug()<< "company error"<<db.lastError()<< endl;
+    }
 
 }
 /*

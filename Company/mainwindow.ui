@@ -40,7 +40,7 @@
      <string>退出</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -79,6 +79,19 @@
       </layout>
      </item>
     </layout>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>10</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>公司管理系统</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
